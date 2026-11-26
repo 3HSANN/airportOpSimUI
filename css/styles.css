@@ -1,0 +1,39 @@
+/* AirportOpSim UI — shared styles */
+body{margin:0;background:#FFFFFF}
+a{color:#1659C2}a:hover{color:#0B3D9E}
+*{box-sizing:border-box}
+.glass{border:1px solid transparent !important;box-shadow:0 0 0 1px oklch(0 0 0 / 0.06),0 1px 2px -1px oklch(0 0 0 / 0.06),0 2px 4px 0 oklch(0 0 0 / 0.04),inset 0 1px 0 oklch(1 0 0 / 0.6)}
+.btn{transition-property:scale,filter;transition-duration:150ms;transition-timing-function:ease-out;-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:no-preference){.btn:not(:disabled):active{scale:0.96}}
+@media (hover:hover){.btn:hover{filter:brightness(1.08)}.row{transition:background-color 120ms ease-out}.row:not(.row-on):hover{background-color:rgba(31,111,221,0.06) !important}.nav a:not(.btn-glass):not(.led-link):hover{color:#0C1322 !important}}
+.btn-glass{background:rgba(255,255,255,0.38) !important;backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border:1px solid transparent;box-shadow:0 0 0 1px oklch(0 0 0 / 0.08),0 1px 2px -1px oklch(0 0 0 / 0.08),0 2px 4px 0 oklch(0 0 0 / 0.06),inset 0 1px 0 oklch(1 0 0 / 0.75);color:#0C1322 !important}
+.btn-glass{transition-property:scale,background-color,box-shadow;transition-duration:300ms;transition-timing-function:cubic-bezier(0.2,0,0,1)}
+.gt{position:relative;display:inline-block;transition:color 300ms cubic-bezier(0.2,0,0,1)}
+.gt::after{content:attr(data-t);position:absolute;inset:0;background:linear-gradient(90deg,#E25F08,#1659C2);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transition:opacity 300ms cubic-bezier(0.2,0,0,1)}
+@media (hover:hover){.btn-glass:hover{filter:none;background-color:rgba(255,255,255,0.62) !important;box-shadow:0 0 0 1px oklch(0 0 0 / 0.08),0 8px 24px -10px rgba(11,61,158,0.3),0 2px 6px -2px rgba(226,95,8,0.18),inset 0 1px 0 oklch(1 0 0 / 0.8)}.btn-glass:hover .gt{color:transparent}.btn-glass:hover .gt::after{opacity:1}}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.btn-glass:hover{scale:1.04}}
+.led-link{position:relative;overflow:hidden;isolation:isolate}
+.led-link::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity 200ms ease-out;background-image:radial-gradient(circle,rgba(31,111,221,0.95) 0.9px,transparent 1.3px),radial-gradient(circle,rgba(47,139,245,0.8) 0.9px,transparent 1.3px),radial-gradient(circle,rgba(11,61,158,0.85) 0.9px,transparent 1.3px);background-size:21px 15px,27px 9px,15px 21px;background-position:0 0,9px 6px,3px 12px}
+@media (hover:hover){.led-link:hover::before{opacity:1}}
+@media (prefers-reduced-motion:no-preference){.led-link::before{animation:sparkle 900ms steps(1,end) infinite;animation-play-state:paused}.led-link:hover::before{animation-play-state:running}}
+@keyframes sparkle{0%{background-position:0 0,9px 6px,3px 12px}33%{background-position:6px 3px,0 3px,12px 3px}66%{background-position:12px 9px,3px 0,6px 6px}}
+.led-text{animation:led-fade 400ms ease-out 300ms both}
+@media (prefers-reduced-motion:no-preference){.led-text{animation:led-on 600ms steps(1,end) 300ms both}}
+@keyframes led-fade{from{opacity:0}}
+@keyframes led-on{0%{opacity:0}20%{opacity:0.9}30%{opacity:0.2}45%{opacity:1}55%{opacity:0.5}70%{opacity:1}}
+.vprog{width:0}
+@keyframes vprog{to{width:100%}}
+.st{animation:fade-in 300ms ease-out both}
+@media (prefers-reduced-motion:no-preference){.st{animation-name:fade-in-up}}
+.st2{animation-delay:100ms}.st3{animation-delay:200ms}.st4{animation-delay:300ms}
+@keyframes fade-in{from{opacity:0}}
+@keyframes fade-in-up{from{opacity:0;transform:translateY(12px);filter:blur(4px)}}
+input::placeholder{color:#6B7588}
+@media (hover:hover){.btn:hover{filter:brightness(1.08)}.row{transition:background-color 120ms ease-out}.row:not(.row-on):hover{background-color:rgba(31,111,221,0.06) !important}.nav a:not(.btn-glass):hover{color:#0C1322 !important}}
+input::placeholder,textarea::placeholder{color:#6B7588}
+
+/* Static-site additions */
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.vprog.is-running{animation:vprog 60s linear forwards}
